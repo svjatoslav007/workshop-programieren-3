@@ -1,4 +1,4 @@
-class Grass{
+class Grass extends LivingCreature {
 
     constructor(x, y){
         //Position

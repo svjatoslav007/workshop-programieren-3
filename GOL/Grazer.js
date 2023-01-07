@@ -1,4 +1,4 @@
-class Grazer{
+class Grazer extends Livingcreature {
     constructor(x, y){
         //Position
         this.x = x;

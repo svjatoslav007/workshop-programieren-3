@@ -1,5 +1,5 @@
 
-class Kannibale {
+class Kannibale extends LivingCreature {
     constructor(x, y){
         //Position
         this.x = x;
