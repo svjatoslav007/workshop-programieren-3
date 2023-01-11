@@ -1,11 +1,8 @@
 class Grass extends LivingCreature {
 
     constructor(x, y){
-        //Position
-        this.x = x;
-        this.y = y;
+        super()
         // RundenzÃ¤hler
-        this.multiply = 0;
         // Sicht auf die Nachbarfelder
         this.directions = [
             [this.x -1, this.y -1],

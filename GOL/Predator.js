@@ -1,10 +1,6 @@
-class Predator{
+class Predator extends LivingCreature {
     constructor(x, y){
-   //Position
-   this.x = x;
-   this.y = y;
-   // FressenzÃ¤hler
-   this.multiply=0;
+   super()
    this.energy = 10;
    this.notEaten =5;
    

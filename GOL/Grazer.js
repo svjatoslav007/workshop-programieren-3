@@ -1,9 +1,7 @@
 class Grazer extends Livingcreature {
     constructor(x, y){
         //Position
-        this.x = x;
-        this.y = y;
-        // FressenzÃ¤hler
+        super()
         this.eatCount = 0;
         this.energy =5;
         

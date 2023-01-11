@@ -1,6 +1,6 @@
 
 
-class Toadstool {
+class Toadstool extends LivingCreature {
     constructor(x, y) {
         this.x = x
         this.y = y
