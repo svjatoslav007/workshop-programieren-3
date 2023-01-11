@@ -1,4 +1,4 @@
-class Grazer extends Livingcreature {
+class Grazer extends LivingCreature {
     constructor(x, y){
         //Position
         super(x,y)

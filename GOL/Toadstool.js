@@ -7,6 +7,7 @@ class Toadstool extends LivingCreature {
     }
     eat() {
         let cells = this.directions
+        
         for(let i in cells) {
             i = parseInt(i);
             let newX = cells[i][0]

@@ -3,6 +3,18 @@ class LivingCreature {
         this.x = x;
         this.y = y;
         this.multiply=0;
+       
+        
+       
+
+        
+    
+           
+        
+         
+    }
+    newDirections(){
+
         this.directions = [
             [this.x -1, this.y -1],
             [this.x, this.y-1],
@@ -12,13 +24,8 @@ class LivingCreature {
             [this.x-1, this.y+1],
             [this.x, this.y+1],
             [this.x+1, this.y+1]
-        ];
-
+        ]
         
-    
-           
-        
-         
     }
     chooseFields(character){
         this.newDirections();
