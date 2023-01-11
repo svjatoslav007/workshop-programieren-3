@@ -31,22 +31,7 @@ class Grazer extends Livingcreature {
         ];
     }
 
-    chooseFields(character){
-        this.newDirections();
-        let found = [];
-        for(let i in this.directions){
-            i = parseInt(i);
-            let fieldPos = this.directions[i];
-            let posX = fieldPos[0];
-            let posY = fieldPos[1];
-            if(posX >= 0 && posX < matrix[0].length && posY >= 0 && posY < matrix.length){
-                if(matrix[posY][posX] == character){
-                    found.push(fieldPos);
-                }
-            }
-        }
-        return found;
-    }
+    
 
     // weiteres Verhalten
     eat(){
