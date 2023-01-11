@@ -2,23 +2,14 @@
 class Kannibale extends LivingCreature {
     constructor(x, y){
         //Position
-        super()
+        super(x,y)
         // FressenzÃ¤hler
         this.multiply=0;
         this.energy = 15;
         this.notEaten =5;
         
         // Sicht auf die Nachbarfelder
-        this.directions = [
-            [this.x -1, this.y -1],
-            [this.x, this.y-1],
-            [this.x+1, this.y-1],
-            [this.x-1, this.y],
-            [this.x+1, this.y],
-            [this.x-1, this.y+1],
-            [this.x, this.y+1],
-            [this.x+1, this.y+1]
-        ];
+      
     }
     newDirections(){
         this.directions = [

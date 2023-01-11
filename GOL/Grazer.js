@@ -1,21 +1,12 @@
 class Grazer extends Livingcreature {
     constructor(x, y){
         //Position
-        super()
+        super(x,y)
         this.eatCount = 0;
         this.energy =5;
         
         // Sicht auf die Nachbarfelder
-        this.directions = [
-            [this.x -1, this.y -1],
-            [this.x, this.y-1],
-            [this.x+1, this.y-1],
-            [this.x-1, this.y],
-            [this.x+1, this.y],
-            [this.x-1, this.y+1],
-            [this.x, this.y+1],
-            [this.x+1, this.y+1]
-        ];
+    
     }
 
     newDirections(){
