@@ -1,4 +1,5 @@
-class Grazer extends LivingCreature {
+const LivingCreature = require ("./LivingCreature")
+module.exports = class Grazer extends LivingCreature{
     constructor(x, y){
         //Position
         super(x,y)
@@ -78,7 +79,7 @@ class Grazer extends LivingCreature {
     move(){
         let emptyFields=this.chooseFields(0);
         if(emptyFields.length>0){
-            let theChosenField =random(emptyFields);
+            let theChosenField = emptyfields[Math.floor(Math.random() * emptyfields.length)]
             let newX = theChosenField[0];
             let newY= theChosenField[1];
             matrix[newY][newX]=2;

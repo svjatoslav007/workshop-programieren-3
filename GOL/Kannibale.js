@@ -1,5 +1,5 @@
-
-class Kannibale extends LivingCreature {
+const LivingCreature = require ("./LivingCreature")
+module.exports = class Kannibale extends LivingCreature{
     constructor(x, y){
         //Position
         super(x,y)
