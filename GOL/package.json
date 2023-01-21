@@ -1,0 +1,12 @@
+{
+  "name": "gol",
+  "version": "1.0.0",
+  "description": "spiel des lebens",
+  "main": "Grass.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "author": "svjatoslav terentyev",
+  "license": "ISC"
+}
