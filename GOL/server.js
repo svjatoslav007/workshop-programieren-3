@@ -45,55 +45,6 @@ function getRandMatrix(cols, rows) {
 // Funktion, die wird einmal ausgefÃ¼hrt bei Programmstart
 function initGame() {
 
-    // matrix =getRandMatrix(50,50);
-
-    // for(let i=0; i <= 30; i++){
-    //     let y = i *3;
-    //     if(y >= 38) {y =26;}
-    //     let x = i *2;
-    //     if(x >= 45){ x = 12;}
-
-    //     matrix[y][x]=4;
-
-    // }
-    // for(let i=0; i <= 20; i++){
-    //     let y = i *3;
-    //     if(y >= 50) {y =43;}
-    //     let x = i *2;
-    //     if(x >= 50){ x = 20;}
-    //     matrix[y][x]=2;
-    // }
-
-    // for(let i=0; i <= 18; i++){
-    //     let y = i *2;
-    //     if(y >= 45) {y =42;}
-    //     let x = i *2;
-    //     if(x >= 20){ x = 45;}
-    //     matrix[y][x]=5;
-
-    //     matrix[10][10]=4;
-    //     matrix[20][25]=4;
-    //     matrix[30][20]=4; 
-    //     matrix[40][35]=4;
-    //     matrix[1][1]=1;
-
-    //     matrix[48][1]=1; 
-    //     matrix[39][38]=3;
-    //     matrix[35][34]=3;
-    //     matrix[10][40]=5;
-
-
-
-
-    // }
-    // for(let i=0; i <= 20; i++){
-    //     let y = i *3;
-    //     if(y >= 48) y =45;
-    //     let x = i *2;
-    //     if(x >= 48) x = 37;
-    //     matrix[y][x]=3;
-    // }
-
 
 
     // durch Matrix laufen und Lebewesen erstellen

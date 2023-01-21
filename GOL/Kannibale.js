@@ -28,16 +28,16 @@ module.exports = class Kannibale extends LivingCreature{
     move(){
         let emptyFields=this.chooseFields(0);
         if(emptyFields.length>0){
-            let theChosenField =random(emptyFields);
+            let theChosenField = emptyFields[Math.floor(Math.random() * emptyFields.length)]
             let newX = theChosenField[0];
             let newY= theChosenField[1];
-            matrix[newY][newX]=5;
+            matrix[newY][newX]=2;
             matrix[this.y][this.x]=0;
             this.x =newX;
             this.y=newY;
-    
+
         }
-    
+
     }
     
     eat_predator(){

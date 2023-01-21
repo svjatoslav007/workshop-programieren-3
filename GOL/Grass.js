@@ -21,7 +21,7 @@ module.exports = class Grass extends LivingCreature{
             let emptyFields = this.chooseFields(0);
             if(emptyFields.length > 0){
                 // wenn es welche gibt, dann wÃ¤hle eines davon zufÃ¤llig aus
-                let theChosenField = random(emptyFields); // Array mit 2 element - x und y
+                let theChosenField = emptyFields[Math.floor(Math.random() * emptyFields.length)] // Array mit 2 element - x und y
                 // Erzeuge neues Grass-Objekt mit Pos des ausgewÃ¤hlten Nachbarfeldes
                 let newX = theChosenField[0];
                 let newY = theChosenField[1];

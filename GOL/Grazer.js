@@ -31,7 +31,7 @@ module.exports = class Grazer extends LivingCreature{
         let grassFields = this.chooseFields(1);
         // ist Grass vorhanden wÃ¤hle zufÃ¤llig eines aus
         if(grassFields.length > 0 && this.energy>0){
-            let theChosenField = random(grassFields);
+            let theChosenField = grassFields[Math.floor(Math.random() * grassFields.length)]
             let newX = theChosenField[0];
             let newY = theChosenField[1];
             // Grasobjekt fressen: 
@@ -79,7 +79,7 @@ module.exports = class Grazer extends LivingCreature{
     move(){
         let emptyFields=this.chooseFields(0);
         if(emptyFields.length>0){
-            let theChosenField = emptyfields[Math.floor(Math.random() * emptyfields.length)]
+            let theChosenField = emptyFields[Math.floor(Math.random() * emptyFields.length)]
             let newX = theChosenField[0];
             let newY= theChosenField[1];
             matrix[newY][newX]=2;
@@ -106,7 +106,8 @@ module.exports = class Grazer extends LivingCreature{
         let emptyFields = this.chooseFields(0);
         if(emptyFields.length > 0){
             // wenn es welche gibt, dann wÃ¤hle eines davon zufÃ¤llig aus
-            let theChosenField = random(emptyFields); // Array mit 2 element - x und y
+            // Array mit 2 element - x und y
+            let theChosenField = emptyFields[Math.floor(Math.random() * emptyFields.length)]
             // Erzeuge neues Grass-Objekt mit Pos des ausgewÃ¤hlten Nachbarfeldes
             let newX = theChosenField[0];
             let newY = theChosenField[1];

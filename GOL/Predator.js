@@ -20,20 +20,18 @@ newDirections(){
    ];
 }
 
-
-c
 move(){
-   let emptyFields=this.chooseFields(0);
-   if(emptyFields.length>0){
-       let theChosenField =random(emptyFields);
-       let newX = theChosenField[0];
-       let newY= theChosenField[1];
-       matrix[newY][newX]=3;
-       matrix[this.y][this.x]=0;
-       this.x =newX;
-       this.y=newY;
+    let emptyFields=this.chooseFields(0);
+    if(emptyFields.length>0){
+        let theChosenField = emptyFields[Math.floor(Math.random() * emptyFields.length)]
+        let newX = theChosenField[0];
+        let newY= theChosenField[1];
+        matrix[newY][newX]=2;
+        matrix[this.y][this.x]=0;
+        this.x =newX;
+        this.y=newY;
 
-   }
+    }
 
 }
 
@@ -42,7 +40,7 @@ eat(){
    let grazerFields = this.chooseFields(2);
    // ist Grass vorhanden wÃ¤hle zufÃ¤llig eines aus
    if(grazerFields.length > 0 && this.energy>0){
-       let theChosenField = random(grazerFields);
+    let theChosenField = grazerFields[Math.floor(Math.random() * grazerFields.length)]
        let newX = theChosenField[0];
        let newY = theChosenField[1];
        // Grasobjekt fressen: 
