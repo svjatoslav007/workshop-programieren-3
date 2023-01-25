@@ -4,6 +4,9 @@ const Kannibale = require("./kannibale.js")
 const Predator = require("./predator.js")
 const Toadstool = require("./Toadstool.js")
 
+const express = require("express");
+const app =express();
+
 
 
 
@@ -118,3 +121,8 @@ setInterval(function () {
     updateGAme();
 }, 1000);
 
+
+
+app.listen(3000, function () {
+    console.log("server leuft auf port 3000")
+});

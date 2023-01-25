@@ -1,23 +1,36 @@
-let clickHandler = 0;
-function clickHandler(evt) {
-   console.log(evt)
-   clickCounter++;
-   let str =" thanks for click "+clickCounter 
-   this.innerText=str
-}
-function bodyClick(evt) {
-    console.log("clicked at:"+evt.pageX,evt.PageY )
-}
-function
 
-let p=document.getElementById("pElement")
-p.addEventListener("click",clickHandler)
 
-function pageLoaded(evt) {
-    console.log("laden fertig ...")
+
+let clickCounter = 0;
+function clickDealer(evt){
+    //console.log(evt);
+    clickCounter++;
+    let str = "pleasure doing buissnis with you " + clickCounter;
+    this.innerText = str;
 }
-windows.onload =pageLoaded;
-function keypreesed(evt) {
-    console.log("keyboard presse",evt.key);
+
+let p = document.getElementById("pElement");
+
+p.addEventListener("click", clickDealer);
+
+function bodyClick(evt){
+    console.log("click at: ", evt.pageX, evt.PageY);
 }
-window.onkeyup= keypressed;
+
+window.onclick = bodyClick;
+
+function pageLoaded(evt){
+    console.log("Laden fertig... bitte Spiel starten... ")
+}
+
+window.onload = pageLoaded;
+
+function keyup(evt){
+    console.log("keyboard pressed: ", evt.key);
+}
+
+window.onkeyup = keyup;
+
+function keyPressed(){
+    console.log(evt);
+}

@@ -8,5 +8,9 @@
     "start": "node server.js"
   },
   "author": "svjatoslav terentyev",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2",
+    "save": "^2.9.0"
+  }
 }
