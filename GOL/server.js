@@ -5,8 +5,14 @@ const Predator = require("./predator.js")
 const Toadstool = require("./Toadstool.js")
 
 const express = require("express");
-const app =express();
-
+const app = express();
+let httpserver = require("http").Server(app);
+let { Server } = require("socket.io");
+const io = new Server(httpserver);
+app.use(express.static("./"));
+app.get("./", function (req, res) {
+    res.redirect("index.html")
+})
 
 
 
@@ -33,13 +39,15 @@ predatorArr = [];
 toadstoolArr = [];
 kannibaleArr = [];
 
+let isRaining = false;
+
 
 function getRandMatrix(cols, rows) {
     let matrix = [];
     for (let y = 0; y < rows; y++) {
         matrix[y] = []; // Zeilenarray
         for (let x = 0; x < cols; x++) {
-            matrix[y][x] = Math.round(random(0, 1));
+            matrix[y][x] = Math.floor(Math.random() * 6);
         }
     }
     return matrix;
@@ -49,6 +57,7 @@ function getRandMatrix(cols, rows) {
 function initGame() {
 
 
+    matrix = getRandMatrix(50, 50);
 
     // durch Matrix laufen und Lebewesen erstellen
     for (let y in matrix) {
@@ -110,19 +119,32 @@ function updateGAme() {
         kannibaleObj.eat_predator();
         kannibaleObj.eat_grazer();
         kannibaleObj.mul();
-
-
-
     }
-    console.log(matrix)
+    //console.log(matrix)
+    console.log("send matrix");
+    io.emit("send matrix", matrix)
 }
-initGame()
-setInterval(function () {
-    updateGAme();
-}, 1000);
 
+io.on("connection", function (socket) {
+    console.log(("client ws connection established..."));
+    socket.on("kill",function(data){
+        console.log()
 
+    })
 
-app.listen(3000, function () {
+})
+
+httpserver.listen(3001, function () {
     console.log("server leuft auf port 3000")
+
+    initGame()
+    setInterval(function () {
+        updateGAme();
+    }, 1000);
+    setInterval(function () {
+        isRaining = !isRaining;
+        io.emit("isReaining", isRaining);
+        console.log("regnet es ", isRaining);
+    }, 5000);
 });
+

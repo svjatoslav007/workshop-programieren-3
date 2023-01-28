@@ -45,7 +45,7 @@ module.exports = class Kannibale extends LivingCreature{
         let predatorFields = this.chooseFields(5);
         // ist Grass vorhanden wÃ¤hle zufÃ¤llig eines aus
         if(predatorFields.length > 0 && this.energy>0){
-            let theChosenField = random(predatorFields);
+            let theChosenField = predatorFields[Math.floor(Math.random() * predatorFields.length)]
             let newX = theChosenField[0];
             let newY = theChosenField[1];
             // Grasobjekt fressen: 
@@ -93,7 +93,7 @@ module.exports = class Kannibale extends LivingCreature{
         let grazerFields = this.chooseFields(5);
         // ist Grass vorhanden wÃ¤hle zufÃ¤llig eines aus
         if(grazerFields.length > 0 && this.energy>0){
-            let theChosenField = random(grazerFields);
+            let theChosenField = grazerFields[Math.floor(Math.random() * grazerFields.length)]
             let newX = theChosenField[0];
             let newY = theChosenField[1];
             // Grasobjekt fressen: 
@@ -141,7 +141,7 @@ module.exports = class Kannibale extends LivingCreature{
             let emptyFields = this.chooseFields(0);
             if(emptyFields.length > 0){
                 // wenn es welche gibt, dann wÃ¤hle eines davon zufÃ¤llig aus
-                let theChosenField = random(emptyFields); // Array mit 2 element - x und y
+                let theChosenField = emptyFields[Math.floor(Math.random() * emptyFields.length)]; // Array mit 2 element - x und y
                 // Erzeuge neues Grass-Objekt mit Pos des ausgewÃ¤hlten Nachbarfeldes
                 let newX = theChosenField[0];
                 let newY = theChosenField[1];
