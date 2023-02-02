@@ -1,25 +1,33 @@
 
-let side = 10;
 let matrixSize = 50;
+let side = 10;
+let socket = io();
 let isRaining = false;
-let socket =null
+
+
 
 function main() {
-     socket = io();
+
     socket.on("send matrix", drawMatrix);
-    socket.on("isRaining",rainHandler);
-    let myKillBtn =document.getElementById("killButton");
-    myKillBtn.addEventListener("click",klickHandler)
+
+    socket.on("isRaining", rainHandler);
+
+    let myKillButton = document.getElementById("killButton");
+    myKillButton.addEventListener("click", killHandler);
 }
+
+
 function rainHandler(data){
-    console.log("regnet es; ",data)
-    isRaining=data;
-
-
-
+    console.log("Regnet es: ", data);
+    isRaining = data;
 }
-function klickHandler(event){
-    console.log("kill Buttom gekiliclkt")
+
+
+
+function killHandler(){
+    console.log("Kill Button geklickt...");
+    // send webSocket Nachricht an Server
+    socket.emit("kill", 10)
 }
 
 // Funktion, die wird einmal ausgefÃ¼hrt bei Programmstart
@@ -63,3 +71,13 @@ function drawMatrix(matrix) {
 }
 
 window.onload = main;
+
+let buttonClick = document.getElementById("addGrazer")
+
+
+
+
+
+
+
+
