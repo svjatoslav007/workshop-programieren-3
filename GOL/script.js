@@ -1,4 +1,4 @@
-
+let matrix = [[]]
 let matrixSize = 50;
 let side = 10;
 let socket = io();
@@ -14,6 +14,13 @@ function main() {
 
     let myKillButton = document.getElementById("killButton");
     myKillButton.addEventListener("click", killHandler);
+
+    let myNewGameButton = document.getElementById("newGame");
+    myNewGameButton.addEventListener("click", newGameHandler);
+    function newGameHandler() {
+        console.log("neues Spiel");
+        socket.emit("newGame",25);
+    }
 }
 
 
@@ -27,7 +34,7 @@ function rainHandler(data) {
 function killHandler() {
     console.log("Kill Button geklickt...");
     // send webSocket Nachricht an Server
-    socket.emit("kill", 10)
+    socket.emit("Kill", 10)
 }
 
 // Funktion, die wird einmal ausgefÃ¼hrt bei Programmstart
@@ -36,41 +43,38 @@ function setup() {
     background("#acacac");
 }
 
-// Funktion wiederholend ausgefÃ¼hrt
-function drawMatrix(matrix) {
 
-    for (let y in matrix) {
-        y = parseInt(y);
-        for (let x in matrix[y]) {
-            x = parseInt(x);
-            let farbWert = matrix[y][x];
-            fill("#ffffff");
-            // Wert 0 - Weiss
-            if (farbWert === 1) {
-                if (isRaining) {
-                    fill('blue')
-                } else {
-                    fill('green')
+
+function drawMatrix(matrix) {
+    // Zeichen des Spielfeldes
+    for (let y = 0; y < matrix.length; y++) {
+        for (let x = 0; x < matrix[y].length; x++) {
+            // farbe festlegen
+            if (matrix[y][x] == 0) {
+                fill("white");
+            } else if (matrix[y][x] == 1) {
+                fill("green");
+                if (isRaining == true) {
+                    fill("blue");
                 }
-                // Wert 1 - GrÃ¼n
-                fill("#00ff00");
-            } else if (farbWert === 2) {
-                // Wert 2 - Gelb
-                fill("#ffff00");
-            } else if (farbWert === 3) {
-                // Wert 3 = Rot
-                fill("#ff0000");
-            } else if (farbWert === 4) {
-                // Wert 3 = Rot
-                fill("#826E40");
-            } else if (farbWert === 5) {
-                // Wert 3 = Rot
-                fill("#FF6800");
+            } else if (matrix[y][x] == 2) {
+                fill(247, 255, 28);
+            } else if (matrix[y][x] == 3) {
+                fill("red");
+            } else if (matrix[y][x] == 4) {
+                fill("grey");
+            } else if (matrix[y][x] == 5) {
+                fill("orange");
             }
-            rect(x * side, y * side, side, side);
+            //zeichne rect
+            rect(x * side, y * side, side, side)
         }
     }
 }
+
+
+
+
 
 window.onload = main;
 

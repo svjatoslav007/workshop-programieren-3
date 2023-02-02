@@ -126,25 +126,43 @@ function updateGAme() {
 }
 
 io.on("connection", function (socket) {
-    console.log(("client ws connection established..."));
+    console.log("client ws connection established...");
+    io.emit("send matrix", matrix)
+
     socket.on("kill",function(data){
-        console.log()
+        console.log("client clickt killbutton",data)
 
     })
-
+    socket.on("newGame", function(data){
+        console.log("client wants do add Garzer", data)
+        for (let y = 0; y < 50; y++) {
+            matrix[y] = []; // Zeilenarray
+            for (let x = 0; x < 50; x++) {
+                matrix[y][x] = Math.floor(Math.random() * 6);
+            }
+        }
+        data = matrix
+    })
 })
 
 httpserver.listen(3001, function () {
-    console.log("server leuft auf port 3000")
+    console.log("server leuft auf port 3001")
+
+ 
+    
 
     initGame()
     setInterval(function () {
         updateGAme();
     }, 1000);
+
     setInterval(function () {
         isRaining = !isRaining;
-        io.emit("isReaining", isRaining);
-        console.log("regnet es ", isRaining);
+        io.emit("isRaining", isRaining);
+        console.log("Regnet es ", isRaining);
     }, 5000);
+
+
+   
 });
 
