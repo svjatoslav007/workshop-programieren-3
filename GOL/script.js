@@ -17,14 +17,14 @@ function main() {
 }
 
 
-function rainHandler(data){
+function rainHandler(data) {
     console.log("Regnet es: ", data);
     isRaining = data;
 }
 
 
 
-function killHandler(){
+function killHandler() {
     console.log("Kill Button geklickt...");
     // send webSocket Nachricht an Server
     socket.emit("kill", 10)
@@ -32,7 +32,7 @@ function killHandler(){
 
 // Funktion, die wird einmal ausgefÃ¼hrt bei Programmstart
 function setup() {
-    createCanvas(matrixSize * side + 1,matrixSize * side + 1);
+    createCanvas(matrixSize * side + 1, matrixSize * side + 1);
     background("#acacac");
 }
 
@@ -47,8 +47,10 @@ function drawMatrix(matrix) {
             fill("#ffffff");
             // Wert 0 - Weiss
             if (farbWert === 1) {
-                if(isRaining){
-                    fill("blue")
+                if (isRaining) {
+                    fill('blue')
+                } else {
+                    fill('green')
                 }
                 // Wert 1 - GrÃ¼n
                 fill("#00ff00");
