@@ -3,7 +3,7 @@ let matrixSize = 50;
 let side = 10;
 let socket = io();
 
-
+//Tipp localhost:ist auf port 3001
 
 
 function main() {
