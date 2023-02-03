@@ -141,11 +141,11 @@ io.on("connection", function (socket) {
 
 
     })
-    socket.on("Kill",function(data){
-        console.log("client clickt killButton",data);
-        killGrass();
+    // socket.on("Kill",function(data){
+    //     console.log("client clickt killAllGrass",data);
+    //     killGrass();
 
-    })
+    // })
 
     socket.on("newGame", function(data){
         console.log("client wants do add Garzer", data)

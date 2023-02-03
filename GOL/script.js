@@ -18,13 +18,13 @@ function main() {
     let myNewGameButton = document.getElementById('newGame');
     myNewGameButton.addEventListener('click', newGameHandler);
 
-    let KillAllGrassButton = document.getElementById("killAllGrass")
-    KillAllGrassButton.addEventListener("click", killAllGrassHandler)
-    
-    function killAllGrassHandler() {
-        console.log("kill all grass")
-        socket.emit("killAllGrass")
-    }
+    // let KillAllGrassButton = document.getElementById("killAllGrass")
+    // KillAllGrassButton.addEventListener("click", killAllGrassHandler)
+
+    // function killAllGrassHandler() {
+    //     console.log("kill all grass")
+    //     socket.emit("killAllGrass")
+    // }
     function newGameHandler() {
         console.log("neues Spiel");
         socket.emit('newGame',25);
