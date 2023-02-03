@@ -40,7 +40,7 @@ predatorArr = [];
 toadstoolArr = [];
 kannibaleArr = [];
 
-let isRaining = false;
+ isRaining = false;
 
 
 function getRandMatrix(cols, rows) {
@@ -133,7 +133,17 @@ io.on("connection", function (socket) {
     socket.on("Kill",function(data){
         console.log("client clickt killButton",data);
         killAll();
+        killGrass();
+        killGrazers();
+        killPredators();
+        killKannibals();
+        killToadstools();
 
+
+    })
+    socket.on("Kill",function(data){
+        console.log("client clickt killButton",data);
+        killGrass();
 
     })
 

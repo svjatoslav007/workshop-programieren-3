@@ -82,28 +82,43 @@ eat(){
        
    }
 }
-mul(){
-   if(this.eatCount >= 5){
-       // finde alle leeren Nachbarfelder
-       let emptyFields = this.chooseFields(0);
-       if(emptyFields.length > 0){
-           // wenn es welche gibt, dann wÃ¤hle eines davon zufÃ¤llig aus
-           let theChosenField = emptyFields[Math.floor(Math.random() * emptyFields.length)] // Array mit 2 element - x und y
-           // Erzeuge neues Grass-Objekt mit Pos des ausgewÃ¤hlten Nachbarfeldes
-           let newX = theChosenField[0];
-           let newY = theChosenField[1];
-           let predatorObj = new Predator (newX, newY);
-           // zur Grassobj-Liste hinzufÃ¼gen
-           predatorArr.push(predatorObj);
-           // Matrix wird an dieser Pos statt der 0 eine 1
-           matrix[newY][newX] = 3;
-       }
 
-       this.eatCount = 0;
-   }
 
-       
-   }
+   mul(){
+        
+    this.multiply++;
+    if(isRaining){
+        if(this.multiply >= 10){
+            let  emptyFields = this.chooseFields(0);
+            if( emptyFields.length > 0){
+                let theChosenField =  emptyFields[Math.floor(Math.random() *  emptyFields.length)] 
+                let newX = theChosenField[0];
+                let newY = theChosenField[1];
+                let predatorObj = new  Predator(newX, newY);
+                predatorArr.push( predatorObj);
+                matrix[newY][newX] = 2;
+            }
+  
+            this.multiply = 0;
+        }
+    }
+    else{
+        if(this.multiply >= 5){
+            let  emptyFields = this.chooseFields(0);
+            if( emptyFields.length > 0){
+                let theChosenField =  emptyFields[Math.floor(Math.random() *  emptyFields.length)] 
+                let newX = theChosenField[0];
+                let newY = theChosenField[1];
+                let  predatorObj = new  Predator(newX, newY);
+                predatorArr.push( predatorObj);
+                matrix[newY][newX] = 2;
+            }
+  
+            this.multiply = 0;
+        }
+    }
+   
+}
 die(){
    matrix[this.y][this.x]=0;
    for(let i =0;i<predatorArr.length;i++){
